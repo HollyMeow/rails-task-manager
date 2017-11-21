@@ -1,0 +1,16 @@
+<h1><%= @task.name %></h1>
+
+<p>
+  <%=  if @task.done == false
+        "[X] Tache à faire"
+      else
+        "[V] Tache faite"
+    end %>
+  <%= link_to "Editer", edit_task_path(@task) %>
+  <%= link_to "Supprimer",
+        task_path(@task),
+        method: :delete,
+        data: { confirm: "Etes vous certain?" } %>
+</p>
+
+<%= link_to "<-- Retour aux taches", tasks_path %>

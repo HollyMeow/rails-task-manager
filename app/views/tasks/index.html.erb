@@ -1,0 +1,18 @@
+<h1>Liste des choses à faire :</h1>
+
+<ul>
+  <% @tasks.each do |task| %>
+    <li>
+      <span style="text-transform: uppercase; font-weight: bold;"><%= task.name %></span>
+
+      <%=  if task.done == false
+        "[X] Tache à faire"
+      else
+        "[V] Tache faite"
+      end %>
+      <%= link_to "voir la tache", task_path(task.id) %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Ajouter une tache", new_task_path %>
